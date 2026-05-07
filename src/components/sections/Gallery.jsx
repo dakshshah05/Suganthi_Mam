@@ -4,11 +4,18 @@ import SectionWrapper from '../ui/SectionWrapper';
 import SectionHeading from '../ui/SectionHeading';
 import { X } from 'lucide-react';
 
+import img1 from '../../assets/gallery/1.jpeg';
+import img2 from '../../assets/gallery/2.jpeg';
+import img3 from '../../assets/gallery/3.jpeg';
+import img4 from '../../assets/gallery/4.jpeg';
+import img5 from '../../assets/gallery/5.jpeg';
+
 const photos = [
-  { id: 1, src: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=600&auto=format&fit=crop", alt: "Training Session" },
-  { id: 2, src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop", alt: "Workshop" },
-  { id: 3, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop", alt: "Seminar" },
-  { id: 4, src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600&auto=format&fit=crop", alt: "Conference" }
+  { id: 1, src: img1, alt: "Gallery Image 1" },
+  { id: 2, src: img2, alt: "Gallery Image 2" },
+  { id: 3, src: img3, alt: "Gallery Image 3" },
+  { id: 4, src: img4, alt: "Gallery Image 4" },
+  { id: 5, src: img5, alt: "Gallery Image 5" }
 ];
 
 export default function Gallery() {
@@ -19,13 +26,15 @@ export default function Gallery() {
     <SectionWrapper id="gallery" className="bg-white dark:bg-dark-bg transition-colors duration-300">
       <SectionHeading>Gallery</SectionHeading>
       
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-        {photos.map(photo => (
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto md:auto-rows-[250px]">
+        {photos.map((photo, index) => (
           <motion.div
             key={photo.id}
             layoutId={`photo-${photo.id}`}
             onClick={() => setSelectedId(photo.id)}
-            className="cursor-pointer overflow-hidden rounded-xl aspect-square relative group"
+            className={`cursor-pointer overflow-hidden rounded-xl relative group ${
+              index === 0 ? 'col-span-2 md:col-span-2 md:row-span-2 h-64 md:h-auto' : 'aspect-square md:aspect-auto'
+            }`}
           >
             <img 
               src={photo.src} 

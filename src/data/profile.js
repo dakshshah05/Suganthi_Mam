@@ -10,7 +10,7 @@ export const profile = {
   email: "suganthijeyasingh2020@gmail.com",
   phone: "+91 99427 74041",
   address: "4, 1st Main, 11th Cross, NS Palya, BTM Layout, Bengaluru - 560076",
-  linkedin: "https://www.linkedin.com/in/dr-suganthi-j-8235b61b1/",
+  linkedin: "https://www.linkedin.com/in/suganthi-phd-8235b61b1/",
   scopus: "https://www.scopus.com/authid/detail.uri?authorId=8348042900",
 
   // ── Bio (Career Profile) ──────────────────────────
