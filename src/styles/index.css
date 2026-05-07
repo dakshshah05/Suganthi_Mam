@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom styles for React Markdown */
+.prose h1, .prose h2, .prose h3 {
+  font-family: "Playfair Display", serif;
+  color: #1e1b4b;
+}
+
+.dark .prose h1, .dark .prose h2, .dark .prose h3 {
+  color: #e0e7ff;
+}
+
+.prose p, .prose li {
+  font-family: "Inter", sans-serif;
+}
