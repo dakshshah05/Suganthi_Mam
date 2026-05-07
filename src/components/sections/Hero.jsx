@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { profile } from '../../data/profile';
+import profilePic from '../../assets/profile.jpeg';
 
 export default function Hero() {
   const titles = ["Professor", "Trainer", "Life Coach", "NLP Practitioner"];
@@ -106,14 +107,10 @@ export default function Hero() {
               
               {/* Photo Container */}
               <div className="absolute inset-3 rounded-full overflow-hidden z-20 border-4 border-white dark:border-slate-800 shadow-2xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
-                {/* Fallback avatar if no image provided */}
-                <span className="text-6xl font-serif text-slate-300 dark:text-slate-500 select-none">JS</span>
-                {/* Assuming user will place profile.jpg in public/ or src/assets/ later. Using a standard img tag with fallback */}
                 <img 
-                  src="/profile.jpg" 
+                  src={profilePic} 
                   alt={profile.name}
                   className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
             </div>
