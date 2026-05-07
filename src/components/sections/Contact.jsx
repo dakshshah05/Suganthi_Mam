@@ -32,6 +32,19 @@ export default function Contact() {
     }
   ];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <SectionWrapper id="contact" className="bg-white dark:bg-dark-bg transition-colors duration-300">
       <SectionHeading>Let's Connect</SectionHeading>
@@ -68,7 +81,7 @@ export default function Contact() {
           
           <div>
             <h3 className="font-serif text-2xl font-bold text-dark dark:text-white mb-6">Send a Message</h3>
-            <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input type="text" name="name" required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-bg text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-primary-500 outline-none transition-shadow" />
               </div>
@@ -79,10 +92,9 @@ export default function Contact() {
                 <textarea name="message" required rows="4" placeholder="Your Message" className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-dark-bg text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-primary-500 outline-none transition-shadow resize-none"></textarea>
               </div>
               <button type="submit" className="w-full py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-medium transition-colors shadow-sm">
-                Send Message
+                Open in Email Client
               </button>
             </form>
-            <p className="text-xs text-slate-400 mt-3 text-center">Powered by Formspree</p>
           </div>
 
           <div className="flex flex-col justify-center space-y-8">
